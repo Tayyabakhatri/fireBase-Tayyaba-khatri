@@ -1,3 +1,7 @@
+
+
+
+// import "./signin.css"
 import { getAuth, signInWithEmailAndPassword } from "./firebase.js";
 let loginPassward = document.getElementById("loginPassward");
 let loginEmail = document.getElementById("loginEmail");
@@ -6,11 +10,8 @@ const auth = getAuth();
 loginBtn.addEventListener('click', () => {
   signInWithEmailAndPassword(auth, loginPassward.value, loginEmail.value)
   .then((userCredential) => {
-
     const user = userCredential.user;
     console.log(user)
-
-
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -18,7 +19,6 @@ loginBtn.addEventListener('click', () => {
     console.log(errorMessage)
     console.log(errorCode)
   });
-location = "./dashBoard/index.html"
   // if (loginEmail.value === "" && loginPassward.value === "") {
   //   Swal.fire({
   //     position: "top-end",
@@ -46,11 +46,8 @@ location = "./dashBoard/index.html"
   // } else {
   //   signInWithEmailAndPassword(auth, loginPassward.value, loginEmail.value)
   //     .then((userCredential) => {
-
   //       const user = userCredential.user;
   //       console.log(user)
-
-
   //     })
   //     .catch((error) => {
   //       const errorCode = error.code;
@@ -58,8 +55,8 @@ location = "./dashBoard/index.html"
   //       console.log(errorMessage)
   //       console.log(errorCode)
   //     });
-  //   location = "./dashBoard/index.html"
   // }
+  location = "/dashBoard/index.html"
 })
 
 
@@ -68,26 +65,8 @@ location = "./dashBoard/index.html"
 
 
 
-//login form functionality
-const wrapper = document.querySelector(".wrapper"),
-signupHeader = document.querySelector(".signup header")
-// loginHeader = document.querySelector(".login header");
 
-// loginHeader.addEventListener("click", () => {
-// wrapper.classList.add("active");
-// });
-signupHeader.addEventListener("click", () => {
-  wrapper.classList.remove("active");
-});
 
-// const wrapper = document.querySelector(".wrapper"),
-//   signupHeader = document.querySelector(".signup header"),
-//   loginHeader = document.querySelector(".login header");
-// loginHeader.addEventListener("click", () => {
-//   wrapper.classList.add("active");
-// });
-// signupHeader.addEventListener("click", () => {
-//   wrapper.classList.remove("active");
-// });
-//login form functionality end
+
+
 

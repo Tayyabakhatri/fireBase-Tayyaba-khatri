@@ -53,14 +53,14 @@ body {
   transition: all
     0.6s
     ease;
-}
-.wrapper.active
+} 
+ .wrapper.active
   .form.login {
   bottom: -15%;
   border-radius: 35%;
   box-shadow: 0 -5px
     10px rgba(0, 0, 0, 0.1);
-}
+} 
 .form
   header {
   font-size: 30px;
@@ -78,7 +78,7 @@ body {
   .form.login
   header {
   opacity: 1;
-}
+} 
 .wrapper.active
   .signup
   header {
@@ -115,7 +115,7 @@ form
   box-shadow: 0
     1px 0
     #ddd;
-}
+} 
 form
   .checkbox {
   display: flex;
@@ -151,9 +151,9 @@ form
   font-weight: 500;
   cursor: pointer;
 }
-.form.login
+ .form.login
   input[type="submit"] {
   background: #4070f4;
   color: #fff;
   border: none;
-}
+} 
