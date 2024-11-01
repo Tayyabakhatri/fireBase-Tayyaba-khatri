@@ -1,6 +1,11 @@
+body{
+    background: url(dashBoard/assets/img/hero-bg-light.webp);
+  
+}
 .register {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #3931af7e, #00c8ff52);
     margin-top: 3%;
+    
     padding: 3%;
 }
 
