@@ -19,7 +19,7 @@ loginBtn.addEventListener('click', () => {
         });
         setTimeout(() => {
          
-          location.href="./profile-page/profile.html"
+          location.href=".profile-page/profile.html"
         }, 2000)
       })
       .catch((error) => {
