@@ -15,11 +15,6 @@ gobtn.addEventListener('click',()=>{
 })
 const auth = getAuth();
 const user = auth.currentUser;
-//profile name displaying and setting to user
-let first_name=document.getElementById("first-name");
-let last_name = document.getElementById("last-name");
-user.displayName=first_name.value +" " + last_name.value
-// finish
 //adding block class when click on edit btn
 edit_profile.addEventListener('click',()=>{
   let btn =document.getElementsByName("btn")
