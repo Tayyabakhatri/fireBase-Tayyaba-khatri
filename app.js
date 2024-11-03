@@ -4,6 +4,9 @@ const auth = getAuth();
 let signupBtn = document.getElementById("signup");
 let signUpPassward = document.getElementById("signUpPassward");
 let signUpEmail = document.getElementById("signUpEmail");
+let first_name=document.getElementById("first-name");
+let last_name = document.getElementById("last-name");
+user.displayName=first_name.value +" " + last_name.value
 
 signupBtn.addEventListener('click', () => {
   if (signUpEmail.value === "" || signUpPassward.value === "") {
