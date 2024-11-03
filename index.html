@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signup.css">
+    <link href="fireBase-Tayyaba-khatri/dashBoard/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- bootstrap link -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <style>
+        #main-img {
+            width: 100%;
+            min-height: 70vh;
+            position: relative;
+            padding: 0 40px 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            justify-content: center;
+        }
+
+        .btn1 {
+            background-color: #388da8;
+            color: white;
+            border-radius: 10px;
+            padding: 8px 18px;
+            font-size: larger;
+        }
+
+        .btn2 {
+            color: white;
+            border-radius: 10px;
+            padding: 8px 18px;
+            font-size: larger;
+            background-color: #77b6ca;
+        }
+        #btn{
+            float: right;
+            background-color: #fec862;
+            border-radius: 10px;
+            padding: 8px 18px;
+            font-size: larger;
+            margin-top: 20px;
+        }
+    </style>
+
+<body>
+    <div class="container text-center">
+        <div class="d-flex flex-column justify-content-center align-items-center ">
+            <div class="mt-5">
+                <h1 data-aos="fade-up">Welcome to <span>QuickStart</span></h1>
+                <p data-aos="fade-up" data-aos-delay="100">Quickly start your project now and set the stage for
+                    success<br>
+                </p>
+            </div>
+        </div>
+        <div>
+            <button class="border-0 btn1" id="mainSignupBtn">signup</button>
+            <button class="border-0 btn2" id="mainSignInBtn">signIn</button>
+        </div>
+    </div>
+    <div id="main-img">
+        <img src="fireBase-Tayyaba-khatri/dashBoard/assets/img/hero-services-img.webp" alt="" class="img-fluid">
+    </div>
+    <script>
+        let mainSignupBtn = document.getElementById("mainSignupBtn");
+        let mainSignInBtn = document.getElementById("mainSignInBtn");
+        mainSignupBtn.addEventListener('click', () => {
+            location = "fireBase-Tayyaba-khatri/signup.html"
+        })
+        mainSignInBtn.addEventListener('click', () => {
+            location = "signup-images/signin.html"
+        })
+    </script>
+</body>
+
+</html>
