@@ -17,10 +17,10 @@ loginBtn.addEventListener('click', () => {
           showConfirmButton: false,
           timer: 1500
         });
-        setTimeout(() => {
+        location.href="./profile-page/profile.html"
+        // setTimeout(() => {
          
-          location.href="./profile-page/profile.html"
-        }, 2000)
+        // }, 2000)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -64,7 +64,10 @@ loginBtn.addEventListener('click', () => {
   }
 })
 })
-
+let google = document.getElementById("googleBtn")
+google.addEventListener('click',()=>{
+  console.log("hello")
+})
 
 
 

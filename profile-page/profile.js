@@ -22,9 +22,7 @@ edit_profile.addEventListener('click',()=>{
     btn[i].style.display="block"
   }
 })
-//finish
-// const auth = getAuth();
-// const user = auth.currentUser;
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log(user)
