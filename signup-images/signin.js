@@ -1,12 +1,19 @@
-import { getAuth, signInWithEmailAndPassword  } from "../fireBase-Tayyaba-khatri/firebase.js";
-document.addEventListener("DOMContentLoaded",()=>{
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  getAuth,
+  provider,
+  signInWithPopup,
+  auth
+} from "../fireBase-Tayyaba-khatri/firebase.js";
+// document.addEventListener("DOMContentLoaded", () => {
 let loginPassward = document.getElementById("loginPassward");
 let loginEmail = document.getElementById("loginEmail");
 let loginBtn = document.getElementById("loginBtn");
-const auth = getAuth();
+// const auth = getAuth();
 loginBtn.addEventListener('click', () => {
-  if (loginEmail.value && loginPassward .value) {
-    signInWithEmailAndPassword(auth, loginEmail.value, loginPassward .value)
+  if (loginEmail.value && loginPassward.value) {
+    signInWithEmailAndPassword(auth, loginEmail.value, loginPassward.value)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user)
@@ -17,10 +24,7 @@ loginBtn.addEventListener('click', () => {
           showConfirmButton: false,
           timer: 1500
         });
-        location.href="./profile-page/profile.html"
-        // setTimeout(() => {
-         
-        // }, 2000)
+        window.Location.href = "./profile-page/profile.html"
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -30,7 +34,7 @@ loginBtn.addEventListener('click', () => {
         Swal.fire({
           position: "top-end",
           icon: "error",
-          title:errorCode,
+          title: errorCode,
           showConfirmButton: false,
           timer: 1500
         });
@@ -63,21 +67,32 @@ loginBtn.addEventListener('click', () => {
     });
   }
 })
-})
+// })
 let google = document.getElementById("googleBtn")
-google.addEventListener('click',()=>{
-  console.log("hello")
+google.addEventListener('click', () => {
+  // console.log("hello")
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log(user)
+      location.href = "./profile-page/profile.html"
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage)
+      // The email of the user's account used.
+      const email = error.customData.email;
+      ; console.log(email);
+
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log(credential)
+      // ...
+    });
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
