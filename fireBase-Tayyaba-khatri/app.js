@@ -27,7 +27,7 @@ signupBtn.addEventListener('click', () => {
           timer: 1500
         });
         setTimeout(() => {
-          location.href = "/signup-images/signin.html"
+          location.href = "../signup-images/signin.html"
         }, 3000)
 
       })
