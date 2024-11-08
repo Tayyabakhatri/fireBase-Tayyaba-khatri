@@ -90,6 +90,7 @@ onAuthStateChanged(auth, (user) => {
           showConfirmButton: false,
           timer: 1500
         });
+        window.location="../fireBase-Tayyaba-khatri/signup.html"
       }).catch((error) => {
         Swal.fire({
           position: "top-end",
