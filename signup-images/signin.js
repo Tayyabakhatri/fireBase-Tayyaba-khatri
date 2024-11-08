@@ -24,7 +24,7 @@ loginBtn.addEventListener('click', () => {
           showConfirmButton: false,
           timer: 1500
         });
-        window.Location.href = "../profile-page/profile.html"
+        window.location.href = "../profile-page/profile.html"
       })
       .catch((error) => {
         const errorCode = error.code;
