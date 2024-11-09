@@ -79,7 +79,7 @@ google.addEventListener('click', () => {
       // The signed-in user info.
       const user = result.user;
       console.log(user)
-      location.href = "./profile-page/profile.html"
+      location.href = "../profile-page/profile.html"
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;

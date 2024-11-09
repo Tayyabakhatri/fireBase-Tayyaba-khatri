@@ -29,8 +29,12 @@ signupBtn.addEventListener('click', () => {
         });
         setTimeout(() => {
           window.location.href = "../signup-images/signin.html"
+
         }, 3000)
         
+
+        }, 2000)
+
       })
       .catch((error) => {
         const errorCode = error.code;
