@@ -1,9 +1,10 @@
 //importing from firebase.js
-import { getAuth, createUserWithEmailAndPassword } from "./firebase.js";
+import { getAuth, createUserWithEmailAndPassword,collection ,db,addDoc} from "./firebase.js";
 const auth = getAuth();
 let signupBtn = document.getElementById("signup");
 let signUpPassward = document.getElementById("signUpPassward");
 let signUpEmail = document.getElementById("signUpEmail");
+
 signupBtn.addEventListener('click', () => {
   if (signUpEmail.value === "" || signUpPassward.value === "") {
     Swal.fire({
@@ -15,7 +16,7 @@ signupBtn.addEventListener('click', () => {
     });
   }
   else if (signUpEmail.value.trim && signUpPassward.value.trim) {
-    createUserWithEmailAndPassword(auth, signUpEmail.value, signUpPassward.value)
+   createUserWithEmailAndPassword(auth, signUpEmail.value, signUpPassward.value)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user)
@@ -27,9 +28,9 @@ signupBtn.addEventListener('click', () => {
           timer: 1500
         });
         setTimeout(() => {
-          location.href = "/signup-images/signin.html"
+          window.location.href = "../signup-images/signin.html"
         }, 3000)
-
+        
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -75,9 +76,39 @@ signupBtn.addEventListener('click', () => {
 
       });
   }
-
-
 })
+//firestore methods
+let first_name= document.getElementById("first-name");
+let last_name=document.getElementById("last-name");
+let phone_no= document.getElementById("phone_no")
+signupBtn.addEventListener('click',async ()=>{
+  let usersData={
+  first_name:first_name.value,
+  last_name:last_name.value,
+  phone_no:phone_no.value
+}
+// console.log(users.first_name,users.last_name);
+//   try {
+//     const docRef = await addDoc(collection(db, "users"), {
+//       ...users      
+//     });
+//     console.log(first_name.value);
+//     console.log("Document written with ID: ", docRef.id);
+//   } catch (e) {
+//     console.error("Error adding document: ", e);
+//   }
+
+try {
+  const docRef = await addDoc(collection(db, "usersData"), {
+...usersData
+  });
+
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+ })
+
 
 
 
