@@ -9,13 +9,15 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="signup.css">
     <!-- bootstrap links finish-->
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font awesome finish -->
+      <!-- sweetalert link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- sweetalert link finish -->
     <link rel="stylesheet" href="email.css">
 </head>
 
@@ -23,12 +25,12 @@
     <div class="container my-5">
         <div>
             <p>To:
-                <input type="text">
+                <input type="text" >
             </p>
         </div>
         <div class="d-flex justify-content-between">
             <p>From:
-                <input type="text">
+                <input type="text"id="from">
             </p>
             <div class="d-flex">
                 <p>Cc</p>
@@ -61,30 +63,35 @@
                     <i class="fa-solid fa-italic fa-lg" id="italic"></i>
                     <i class="fa-solid fa-list fa-lg" id="list"></i>
                 </div>
-                <div class="bg-success px-3 rounded pt-2">
+                <div class="btn bg-success px-3 rounded pt-2">
                     <i class="fa-solid fa-font fa-lg" style="color: #f7f7f7;" id="formating"></i>
                 </div>
-            </div   >
-
-            <div class="ml-4"><button type="button" class="btn btn-primary text-center"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
-                        class="bi bi-cursor-fill" viewBox="0 0 16 16">
+            </div>
+            <div id="sendBtn" class="d-flex">
+                <div class="mr-3"><button type="button" class="btn btn-primary text-center" id="send"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
+                            class="bi bi-cursor-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
+                        </svg>Send</button>
+                </div>
+                <div id="modeBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
+                        class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
                         <path
-                            d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
-                    </svg>Send</button></div>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
-                    class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
-                </svg>
-
-
-
+                            d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
+                    </svg>
+                </div>
             </div>
         </div>
+
     </div>
-    <script src="email.js"></script>
+
+           
+
+
+    <script type="module" src="email.js"></script>
+<script type="module" src="../fireBase-Tayyaba-khatri/firebase.js"></script>
 </body>
 
 </html>

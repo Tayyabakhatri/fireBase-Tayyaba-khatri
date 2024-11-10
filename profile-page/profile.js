@@ -11,8 +11,9 @@ let update_Passward = document.getElementById("update-Passward");
 let edit_profile = document.getElementById("edit-profile");
 let gobtn = document.getElementById('goBtn');
 gobtn.addEventListener('click',()=>{
-  location.href="../fireBase-Tayyaba-khatri/dashBoard/index.html"
-})
+    location.href="../create-email/email.html"
+    }
+)
 const auth = getAuth();
 const user = auth.currentUser;
 //adding block class when click on edit btn

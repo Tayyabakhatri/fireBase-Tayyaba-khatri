@@ -23,6 +23,13 @@ outline: none;
     bottom: 0px;
     margin-bottom: 10px;
     display: flex;
+    /* justify-content: space-between; */
+}
+#sendBtn{
+    position: fixed;
+    bottom: 0px;
+   right: 0px;
+   margin-bottom: 10px;
 }
 .text-icons>* {
 
