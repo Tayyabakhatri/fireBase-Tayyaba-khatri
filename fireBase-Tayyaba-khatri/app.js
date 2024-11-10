@@ -35,6 +35,7 @@ signupBtn.addEventListener('click', () => {
 
         }, 2000)
 
+}
       })
       .catch((error) => {
         const errorCode = error.code;
