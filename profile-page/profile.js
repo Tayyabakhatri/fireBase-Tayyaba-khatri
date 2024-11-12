@@ -157,7 +157,7 @@ onAuthStateChanged(auth, (user) => {
     }
   })
 
-  } else {
+  } 
     logout.addEventListener('click', () => {
       signOut(auth).then(() => {
         Swal.fire({
@@ -178,5 +178,4 @@ onAuthStateChanged(auth, (user) => {
       });
     })
 
-  }
 });
