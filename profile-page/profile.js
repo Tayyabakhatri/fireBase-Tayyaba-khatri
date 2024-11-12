@@ -1,4 +1,4 @@
-import { getAuth, onAuthStateChanged, updateProfile, sendEmailVerification,deleteUser,updateEmail,updatePassword,signOut } from "../fireBase-Tayyaba-khatri/firebase.js";
+import { getAuth, onAuthStateChanged, updateProfile, sendEmailVerification, deleteUser, updateEmail, updatePassword, signOut } from "../fireBase-Tayyaba-khatri/firebase.js";
 let logout = document.getElementById("logout")
 let profile_name = document.getElementById("profile-name");
 let profile_img = document.getElementById("profile-img");
@@ -10,17 +10,17 @@ let update_Email = document.getElementById("update-Email");
 let update_Passward = document.getElementById("update-Passward");
 let edit_profile = document.getElementById("edit-profile");
 let gobtn = document.getElementById('goBtn');
-gobtn.addEventListener('click',()=>{
-    location.href="../create-email/email.html"
-    }
-)
+gobtn.addEventListener('click', () => {
+  location.href = "../fireBase-Tayyaba-khatri/dashBoard/index.html"
+})
+
 const auth = getAuth();
 const user = auth.currentUser;
 //adding block class when click on edit btn
-edit_profile.addEventListener('click',()=>{
-  let btn =document.getElementsByName("btn")
-  for (let i = 0 ; i < btn.length;i++){
-    btn[i].style.display="block"
+edit_profile.addEventListener('click', () => {
+  let btn = document.getElementsByName("btn")
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].style.display = "block"
   }
 })
 
@@ -38,9 +38,9 @@ onAuthStateChanged(auth, (user) => {
     // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
     profile_img.src = user.photoURL
-    profile_name.innerHTML= user.displayName
+    profile_name.innerHTML = user.displayName
     user_email.innerHTML = user.email
-    
+
 
     //verify email
     Email_varification.addEventListener("click", () => {
@@ -59,9 +59,9 @@ onAuthStateChanged(auth, (user) => {
     })
     //update profile
     update_profile.addEventListener('click', () => {
-      user.displayName=prompt("enter user name :")
+      user.displayName = prompt("enter user name :")
       updateProfile(auth.currentUser, {
-        displayName:user.displayName, photoURL: user.photoURL
+        displayName: user.displayName, photoURL: user.photoURL
       }).then(() => {
         console.log("profile updated")
         Swal.fire({
@@ -75,7 +75,7 @@ onAuthStateChanged(auth, (user) => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: error,
+          title: error.message,
           showConfirmButton: false,
           timer: 1500
         });
@@ -91,20 +91,20 @@ onAuthStateChanged(auth, (user) => {
           showConfirmButton: false,
           timer: 1500
         });
-        window.location="../fireBase-Tayyaba-khatri/signup.html"
+        window.location = "../fireBase-Tayyaba-khatri/signup.html"
       }).catch((error) => {
         Swal.fire({
           position: "top-end",
           icon: "error",
-          title: error,
+          title: error.message,
           showConfirmButton: false,
           timer: 1500
         });
       });
     })
     //update email
-    update_Email.addEventListener('click',()=>{
-      updateEmail(auth.currentUser,user.email).then(() => {
+    update_Email.addEventListener('click', () => {
+      updateEmail(auth.currentUser, user.email).then(() => {
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -116,36 +116,49 @@ onAuthStateChanged(auth, (user) => {
         Swal.fire({
           position: "top-end",
           icon: "error",
-          title: error,
+          title: error.message,
           showConfirmButton: false,
           timer: 1500
         });
       });
     })
     //update passward 
-    update_Passward.addEventListener('click',()=>{
-      
-     updatePassword(user, newPassword).then(() => {
+    update_Passward.addEventListener('click', () => {
+      // const newPassword = getASecureRandomPassword();
+
+      let newPassword= prompt("enter your new passward")
+     if(newPassword){
+      updatePassword(user, newPassword).then(() => {
+       
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "passward updated",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }).catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      });
+    }else{
       Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "passward updated",
-    showConfirmButton: false,
-    timer: 1500
-  });
-}).catch((error) => {
-  Swal.fire({
-    position: "top-end",
-    icon: "error",
-    title: error,
-    showConfirmButton: false,
-    timer: 1500
-  });
-});
-    })
-   
+        position: "top-end",
+        icon: "password not entered",
+        title: error.message,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  })
+
   } else {
-    logout.addEventListener('click',()=>{
+    logout.addEventListener('click', () => {
       signOut(auth).then(() => {
         Swal.fire({
           position: "top-end",
@@ -154,15 +167,15 @@ onAuthStateChanged(auth, (user) => {
           showConfirmButton: false,
           timer: 1500
         });
-            }).catch((error) => {
-              Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: error,
-                showConfirmButton: false,
-                timer: 1500
-              });
-            });
+      }).catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      });
     })
 
   }
