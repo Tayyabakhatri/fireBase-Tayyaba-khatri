@@ -1,4 +1,16 @@
-import { getAuth, onAuthStateChanged, updateProfile, sendEmailVerification, deleteUser, updateEmail, updatePassword, signOut } from "../fireBase-Tayyaba-khatri/firebase.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  updateProfile,
+  sendEmailVerification,
+  deleteUser,
+  updateEmail,
+  updatePassword,
+  signOut,
+ 
+} from "../fireBase-Tayyaba-khatri/firebase.js";
+
+
 let logout = document.getElementById("logout")
 let profile_name = document.getElementById("profile-name");
 let profile_img = document.getElementById("profile-img");
@@ -10,6 +22,8 @@ let update_Email = document.getElementById("update-Email");
 let update_Passward = document.getElementById("update-Passward");
 let edit_profile = document.getElementById("edit-profile");
 let gobtn = document.getElementById('goBtn');
+
+
 gobtn.addEventListener('click', () => {
   location.href = "../fireBase-Tayyaba-khatri/dashBoard/index.html"
 })
@@ -126,56 +140,61 @@ onAuthStateChanged(auth, (user) => {
     update_Passward.addEventListener('click', () => {
       // const newPassword = getASecureRandomPassword();
 
-      let newPassword= prompt("enter your new passward")
-     if(newPassword){
-      updatePassword(user, newPassword).then(() => {
-       
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "passward updated",
-          showConfirmButton: false,
-          timer: 1500
+      let newPassword = prompt("enter your new passward")
+      if (newPassword) {
+        updatePassword(user, newPassword).then(() => {
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "passward updated",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }).catch((error) => {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: error.message,
+            showConfirmButton: false,
+            timer: 1500
+          });
         });
-      }).catch((error) => {
+      } else {
         Swal.fire({
           position: "top-end",
-          icon: "error",
+          icon: "password not entered",
           title: error.message,
           showConfirmButton: false,
           timer: 1500
         });
-      });
-    }else{
+      }
+    })
+
+  }
+  logout.addEventListener('click', () => {
+    signOut(auth).then(() => {
       Swal.fire({
         position: "top-end",
-        icon: "password not entered",
-        title: error.message,
+        icon: "success",
+        title: "logged out successfully",
         showConfirmButton: false,
         timer: 1500
       });
-    }
+    }).catch((error) => {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: error,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
   })
 
-  } 
-    logout.addEventListener('click', () => {
-      signOut(auth).then(() => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "logged out successfully",
-          showConfirmButton: false,
-          timer: 1500
-        });
-      }).catch((error) => {
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: error,
-          showConfirmButton: false,
-          timer: 1500
-        });
-      });
-    })
-
 });
+// let getDoc= document.getElementById('getbtn');
+// getDoc.addEventListener('click',async()=>{
+
+
+// })
