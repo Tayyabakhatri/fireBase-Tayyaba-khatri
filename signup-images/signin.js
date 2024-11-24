@@ -11,7 +11,7 @@ let loginPassward = document.getElementById("loginPassward");
 let loginEmail = document.getElementById("loginEmail");
 let loginBtn = document.getElementById("loginBtn");
 // const auth = getAuth();
-loginBtn.addEventListener('click',() => {
+loginBtn.addEventListener('click', () => {
   if (loginEmail.value && loginPassward.value) {
     signInWithEmailAndPassword(auth, loginEmail.value, loginPassward.value)
       .then((userCredential) => {
@@ -24,7 +24,7 @@ loginBtn.addEventListener('click',() => {
           showConfirmButton: false,
           timer: 1500
         });
- 
+
         window.location.href = "../profile-page/profile.html"
       })
       .catch((error) => {
@@ -98,13 +98,13 @@ google.addEventListener('click', () => {
     });
 })
 
-loginBtn.addEventListener('click',async() => {
-  
+loginBtn.addEventListener('click', async () => {
+
 
   const querySnapshot = await getDocs(collection(db, "users"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, " => ", doc.data());
   });
-         
+
 })

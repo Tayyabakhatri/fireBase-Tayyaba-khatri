@@ -86,10 +86,10 @@ signupBtn.addEventListener('click', () => {
     
 
 
-        // setTimeout(() => {
-        //   window.location.href = "../signup-images/signin.html"
+        setTimeout(() => {
+          window.location.href = "../signup-images/signin.html"
 
-        // }, 3000)
+        }, 3000)
 
       })
 //try kernyhen
