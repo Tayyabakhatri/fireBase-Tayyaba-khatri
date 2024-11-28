@@ -4,9 +4,9 @@ import {
   collection, db, addDoc,
   getFirestore,
   serverTimestamp,
-
   getDocs
 } from "./firebase.js";
+
 const auth = getAuth();
 let signupBtn = document.getElementById("signup");
 let signUpPassward = document.getElementById("signUpPassward");
@@ -57,15 +57,15 @@ signupBtn.addEventListener('click', () => {
           console.error("Error adding document: ", e);
         }
         // getting all data
-        // try {
-        //   const querySnapshot = await getDocs(collection(db, "users"));
-        //   querySnapshot.forEach((doc) => {
-        //     // doc.data() is never undefined for query doc snapshots
-        //     console.log(doc.id, " => ", doc.data());
-        //   });
-        // } catch (e) {
-        //   console.log(e)
-        // }
+        try {
+          const querySnapshot = await getDocs(collection(db, "users"));
+          querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+          });
+        } catch (e) {
+          console.log(e)
+        }
 
 
         //  getting single doc
