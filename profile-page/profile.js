@@ -7,7 +7,7 @@ import {
   updateEmail,
   updatePassword,
   signOut,
- 
+
 } from "../fireBase-Tayyaba-khatri/firebase.js";
 
 
